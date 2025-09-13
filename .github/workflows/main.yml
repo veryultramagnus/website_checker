@@ -26,5 +26,5 @@ jobs:
           SMTP2GO_USERNAME: ${{ secrets.SMTP2GO_USERNAME }}
           SMTP2GO_PASSWORD: ${{ secrets.SMTP2GO_PASSWORD }}
           TO_EMAIL: ${{ secrets.TO_EMAIL }}
-          WEBSITE_TO_CHECK: ${{secrets.WRBSITE_TO_CHECK}}
+          WEBSITE_TO_CHECK: ${{secrets.WEBSITE_TO_CHECK}}
         run: python check_website.py
