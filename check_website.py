@@ -34,7 +34,7 @@ def send_email(message):
 
     with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
         server.starttls()
-        server.login(os.getenv("FROM_EMAIL"), PASSWORD)
+        server.login(os.getenv("SMTP2GO_USERNAME"), PASSWORD)
         server.send_message(msg)
 
 if __name__ == "__main__":
