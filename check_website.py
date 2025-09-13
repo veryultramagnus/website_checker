@@ -4,7 +4,7 @@ from email.mime.text import MIMEText
 from datetime import datetime
 import os
 
-URL = "https://example.com"
+URL = os.getenv("WEBSITE_TO_CHECK");
 
 SMTP_SERVER = "mail.smtp2go.com"
 SMTP_PORT = 587
