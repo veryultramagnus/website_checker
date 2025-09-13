@@ -1,6 +1,16 @@
 import requests
+import smtplib
+from email.mime.text import MIMEText
+from datetime import datetime
+import os
 
-URL = "https://littlegoodwill.org"
+URL = "https://example.com"
+
+SMTP_SERVER = "mail.smtp2go.com"
+SMTP_PORT = 587
+EMAIL = os.getenv("SMTP2GO_USERNAME")
+PASSWORD = os.getenv("SMTP2GO_PASSWORD")
+TO_EMAIL = os.getenv("TO_EMAIL")
 
 def check_website():
     try:
@@ -12,6 +22,17 @@ def check_website():
     except Exception as e:
         return f"{URL} check failed: {e}"
 
+def send_email(message):
+    msg = MIMEText(message)
+    msg["Subject"] = f"Website Status Report - {datetime.now().strftime('%Y-%m-%d')}"
+    msg["From"] = EMAIL
+    msg["To"] = TO_EMAIL
+
+    with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+        server.starttls()
+        server.login(EMAIL, PASSWORD)
+        server.send_message(msg)
+
 if __name__ == "__main__":
     status = check_website()
-    print(status)
+    send_email(status)
