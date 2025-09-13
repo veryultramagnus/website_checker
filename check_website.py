@@ -7,7 +7,7 @@ import os
 URL = os.getenv("WEBSITE_TO_CHECK");
 
 SMTP_SERVER = "mail.smtp2go.com"
-SMTP_PORT = 587
+SMTP_PORT = 2525
 EMAIL = os.getenv("SMTP2GO_USERNAME")
 PASSWORD = os.getenv("SMTP2GO_PASSWORD")
 TO_EMAIL = os.getenv("TO_EMAIL")
