@@ -8,7 +8,7 @@ URL = os.getenv("WEBSITE_TO_CHECK");
 
 SMTP_SERVER = "mail.smtp2go.com"
 SMTP_PORT = 2525
-EMAIL = os.getenv("SMTP2GO_USERNAME")
+EMAIL = os.getenv("FROM_EMAIL")
 PASSWORD = os.getenv("SMTP2GO_PASSWORD")
 TO_EMAIL = os.getenv("TO_EMAIL")
 
