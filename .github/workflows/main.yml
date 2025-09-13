@@ -1,0 +1,30 @@
+name: Website Status Check
+
+on:
+  schedule:
+    - cron: "0 3 * * *" # 9 AM CST / 3 AM UCT
+  workflow_dispatch: # manual trigger
+
+jobs:
+  check-and-email:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run website check and email
+        env:
+          SMTP2GO_USERNAME: ${{ secrets.SMTP2GO_USERNAME }}
+          SMTP2GO_PASSWORD: ${{ secrets.SMTP2GO_PASSWORD }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}
+          WEBSITE_TO_CHECK: ${{secrets.WRBSITE_TO_CHECK}}
+        run: python check_website.py
