@@ -27,6 +27,10 @@ def send_email(message):
     msg["Subject"] = f"Website Status Report - {datetime.now().strftime('%Y-%m-%d')}"
     msg["From"] = EMAIL
     msg["To"] = TO_EMAIL
+    print(f"URL={URL}")
+    print(f"EMAIL={EMAIL}")
+    print(f"TO_EMAIL={TO_EMAIL}")
+
 
     with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
         server.starttls()
