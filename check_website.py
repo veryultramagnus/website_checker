@@ -17,8 +17,10 @@ def check_website():
         response = requests.get(URL, timeout=10)
         if response.status_code == 200:
             return f"{URL} is UP (status 200)"
-        else:
-            return f"{URL} returned status {response.status_code}"
+        elif response.status.code == 403:
+            return f"{URL} is UP (status {response.status_code})"
+        else
+            return f"{URL} returned status {response.status_code}" 
     except Exception as e:
         return f"{URL} check failed: {e}"
 
