@@ -1,0 +1,1 @@
+This is a little project meant to make checking the status of your website easy. Instead of needing to check every day, you'll be emailed the results of a check done automatically using GitHub Actions. The time and frequency can be changed in the yml file.
