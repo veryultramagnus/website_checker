@@ -2,7 +2,7 @@ name: Website Status Check
 
 on:
   schedule:
-    - cron: "0 3 * * *" # 9 AM CST / 3 AM UCT
+    - cron: "0 14 * * *" # 9 AM CST / 3 AM UCT
   workflow_dispatch: # manual trigger
 
 jobs:
