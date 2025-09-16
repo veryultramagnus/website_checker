@@ -19,7 +19,7 @@ def check_website():
             return f"{URL} is UP (status 200)"
         elif response.status.code == 403:
             return f"{URL} is UP (status {response.status_code})"
-        else
+        else:
             return f"{URL} returned status {response.status_code}" 
     except Exception as e:
         return f"{URL} check failed: {e}"
